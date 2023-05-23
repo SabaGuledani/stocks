@@ -23,6 +23,10 @@ res = json.loads(result_json)
 res_structured = json.dumps(res, indent=4)
 print(res_structured)
 
+with open(f'{ticker}.json', 'w') as file:
+    file.write(result_json)
+    json.dump(res, file, indent=4)
+
 date = res['from']
 high = res['high']
 low = res['low']
